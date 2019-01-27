@@ -12,13 +12,6 @@ export class FileNode {
   }
 }
 
-/**
- * File database, it can build a tree structured Json object from string.
- * Each node in Json object represents a file or a directory. For a file, it has name and type.
- * For a directory, it has name and children (a list of files or directories).
- * The input will be a json object string, and the output is a list of `FileNode` with nested
- * structure.
- */
 @Injectable({
   providedIn: 'root'
 })
