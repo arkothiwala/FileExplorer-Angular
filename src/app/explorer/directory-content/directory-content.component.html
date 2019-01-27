@@ -1,0 +1,24 @@
+<div class="container" fxFlex fxLayout="row" fxLayoutAlign="space-between stretch" style="height:100vh">
+  <div class="content" fxFlex fxLayout="row">
+    <mat-grid-list cols="6" rowHeight="100px" fxFlex>
+      
+      <!-- This is where all folders are getting created iteratively -->
+      <mat-grid-tile *ngFor="let element of fileElements" class=file-or-folder  >
+        <div fxLayout="column" [appCurrentSelection]="element" BgColor="transparent" allowNavigation="!fileDB.EditingFolderName" fxLayoutAlign="space-between center" style="text-align:center">
+          <mat-icon color="primary" class="file-or-folder-icon pointer" >folder</mat-icon>
+          <div class="folder" >{{element.name}}</div>
+        </div>
+      </mat-grid-tile>
+
+      <!-- Create new folder tile in line with other folders -->
+      <mat-grid-tile class=file-or-folder >
+          <div fxLayout="column" fxLayoutAlign="space-between center" (click)="createNewClick()"style="text-align:center">
+            <mat-icon color="primary" class="file-or-folder-icon pointer" >create_new_folder</mat-icon>
+            <input #newfolder class="folder" *ngIf="fileDB.EditingFolderName" type="text" placeholder="Name" (keyup.enter)="addFolder(newfolder)" (keyup.escape)="fileDB.EditingFolderName=false">
+            <div class="folder" *ngIf="!fileDB.EditingFolderName">Create New</div>
+          </div>
+      </mat-grid-tile>
+
+    </mat-grid-list>
+  </div>
+</div>

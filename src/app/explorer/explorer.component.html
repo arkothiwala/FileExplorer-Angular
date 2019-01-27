@@ -1,0 +1,21 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button (click)="sidenav.toggle()" style="margin-right: 15px;">
+        <mat-icon class="file-or-folder-icon pointer">reorder</mat-icon>
+    </button>
+    {{fileDB.SelectedFolder.address.join(' / ')}}
+
+    <span style="flex: 1 1 auto"></span>
+    <button mat-icon-button  *ngIf="fileDB.SelectedFolder.address.length>1" (click)="fileDB.SelectParent()" >
+      <mat-icon class="file-or-folder-icon pointer" >arrow_upward</mat-icon>
+    </button>
+</mat-toolbar>
+
+<mat-sidenav-container class="tree-container">
+  <mat-sidenav #sidenav mode="side" style="min-width: 50px; width:15%">
+    <app-directory-tree></app-directory-tree>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <app-directory-content></app-directory-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>
