@@ -8,7 +8,7 @@ import { FileDatabaseService } from './shared/services/file-database.service';
 })
 export class ExplorerComponent implements OnInit {
   events: string[] = [];
-  constructor(private fileDB : FileDatabaseService) { }
+  constructor(public fileDB : FileDatabaseService) { }
 
   ngOnInit() {
   }

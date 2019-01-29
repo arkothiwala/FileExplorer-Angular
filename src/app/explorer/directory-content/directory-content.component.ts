@@ -10,7 +10,7 @@ import { CurrentSelectionDirective } from '../shared/directives/current-selectio
 export class DirectoryContentComponent implements OnInit {
 
   fileElements : FileNode[]
-  constructor(private fileDB: FileDatabaseService) { }
+  constructor(public fileDB: FileDatabaseService) { }
 
   ngOnInit() {
     this.fileElements = this.fileDB.SelectedFolder.children;
