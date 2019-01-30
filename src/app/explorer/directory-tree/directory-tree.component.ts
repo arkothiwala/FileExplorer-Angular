@@ -22,6 +22,7 @@ export class DirectoryTreeComponent implements OnInit {
   }
 
   ngOnInit(){
+    // Subscription to datachange event to update UI
     this.database.dataChange.subscribe((data)=>{
       console.log('subscription logging');
       this.nestedDataSource.data = null
@@ -30,6 +31,7 @@ export class DirectoryTreeComponent implements OnInit {
     });
   }
 
+  // Folders will always have scope of children so this is always true (extendable to cases of files)
   hasNestedChild = (_: number, nodeData: FileNode) => !nodeData.type;
 
   private _getChildren = (node: FileNode) => node.children;

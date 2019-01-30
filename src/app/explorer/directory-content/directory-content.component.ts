@@ -17,6 +17,7 @@ export class DirectoryContentComponent implements OnInit {
     this.fileDB.selectedFolderChanged.subscribe(
       (updatedSelection)=>{ this.fileElements = updatedSelection.children}
     )
+    // This is to handle page refresh or tab close event while creating/editting folder name
     window.addEventListener('beforeunload',(e)=>{
       if(this.fileDB.EditingFolderName){
         e.returnValue = '';

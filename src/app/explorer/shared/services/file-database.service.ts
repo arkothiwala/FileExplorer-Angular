@@ -28,6 +28,7 @@ export class FileDatabaseService {
 
   //#region Properties
 
+  // This is the main object which holds entire tree data
   get data(): FileNode[]        { return this.dataChange.value; }
 
   get SelectedFolder()          { return this._selectedFolder; }
